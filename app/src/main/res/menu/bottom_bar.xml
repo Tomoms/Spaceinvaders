@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/launches"
+        android:icon="@drawable/rocket"
+        android:title="@string/launches" />
+    <item android:id="@+id/live"
+        android:icon="@drawable/camera"
+        android:title="@string/live" />
+    <item android:id="@+id/articles"
+        android:icon="@drawable/newspaper"
+        android:title="@string/articles" />
+</menu>
