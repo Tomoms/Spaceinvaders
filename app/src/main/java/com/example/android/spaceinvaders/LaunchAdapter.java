@@ -29,10 +29,10 @@ public class LaunchAdapter extends ArrayAdapter<Launch> {
         Launch curLaunch = getItem(position);
         TextView name = listItemView.findViewById(R.id.name);
         ImageView image = listItemView.findViewById(R.id.image);
-        name.setText(curLaunch.getName());
+        int index = curLaunch.getDate().indexOf(",");
+        name.setText(curLaunch.getRocketName() + "\n" + curLaunch.getDate().substring(0, index + 6));
         String imgURI = curLaunch.getImgURL();
         Picasso.with(listItemView.getContext()).load(imgURI).fit().centerCrop().into(image);
-        //image.setImageResource(R.mipmap.k);
 
         return listItemView;
     }

@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@drawable/universoosservabile"
+    tools:context=".MainActivity"
+    >
 
         <GridView
             android:numColumns="2"
@@ -14,7 +16,7 @@
             android:layout_height="match_parent"
             android:id="@+id/grid"
             android:layout_above="@id/bottom_bar"
-            android:background="#707070"/>
+            android:gravity="center"/>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_bar"
@@ -25,11 +27,12 @@
         android:background="@color/lightGray"
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/black"
-        app:menu="@menu/bottom_bar" />
+        app:menu="@menu/bottom_bar"/>
 
     <TextView
         android:id="@+id/empty_view"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/roboto_thin"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textAppearance="?android:textAppearanceMedium"/>

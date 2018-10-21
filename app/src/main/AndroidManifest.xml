@@ -19,6 +19,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".DetailsActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".FaqActivity"
+            android:launchMode="singleTask" />
+        <activity android:name=".QueryActivity"></activity>
     </application>
 
 </manifest>

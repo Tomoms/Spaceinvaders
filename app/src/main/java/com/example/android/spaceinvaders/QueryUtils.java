@@ -2,9 +2,6 @@ package com.example.android.spaceinvaders;
 
 import android.text.TextUtils;
 import android.util.Log;
-
-import com.example.android.spaceinvaders.Launch;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -101,78 +98,64 @@ public final class QueryUtils {
         return output.toString();
     }
 
-    private static List<Launch> extractFeatureFromJson(String earthquakeJSON) {
-        // If the JSON string is empty or null, then return early.
-        if (TextUtils.isEmpty(earthquakeJSON)) {
+    private static List<Launch> extractFeatureFromJson(String launchJSON) {
+        if (TextUtils.isEmpty(launchJSON)) {
             return null;
         }
 
-        // Create an empty ArrayList that we can start adding earthquakes to
         List<Launch> launches = new ArrayList<>();
 
-        // Try to parse the JSON response string. If there's a problem with the way the JSON
-        // is formatted, a JSONException exception object will be thrown.
-        // Catch the exception so the app doesn't crash, and print the error message to the logs.
         try {
 
-            // Create a JSONObject from the JSON response string
-            JSONObject baseJsonResponse = new JSONObject(earthquakeJSON);
+            JSONObject baseJsonResponse = new JSONObject(launchJSON);
 
-            // Extract the JSONArray associated with the key called "features",
-            // which represents a list of features (or earthquakes).
             JSONArray launchArray = baseJsonResponse.getJSONArray("launches");
 
-            // For each launch in the launchArray, create an {@link launch} object
             for (int i = 0; i < launchArray.length(); i++) {
+                try {
+                    JSONObject level1 = launchArray.getJSONObject(i);
 
-                // Get a single Launch from the list
-                JSONObject level1 = launchArray.getJSONObject(i);
+                    String name = level1.getString("name");
+                    String date = level1.getString("net");
+                    String videoURL = level1.getString("vidURL");
+                    if (videoURL == null)
+                        videoURL = "";
 
-                String name = level1.getString("name");
-                String date = level1.getString("net");
-                String videoURL = level1.getString("vidURL");
-                if(videoURL == null)
-                    videoURL = "";
+                    // go down
+                    JSONObject level2 = level1.getJSONObject("location");
+                    JSONArray level3 = level2.getJSONArray("pads");
 
-                // go down
-                JSONObject level2 = level1.getJSONObject("location");
-                JSONArray level3 = level2.getJSONArray("pads");
+                    String place = level2.getString("name");
+                    String mapURL = level3.getJSONObject(0).getString("mapURL");
 
-                String place = level2.getString("name");
-                String mapURL = "";//level3.getJSONObject(0).getString("mapURL");
-
-                // go down
-                level2 = level1.getJSONObject("rocket");
-                String nameRocket = level2.getString("name");
-                String imageURL = level2.getString("imageURL");
+                    // go down
+                    level2 = level1.getJSONObject("rocket");
+                    String nameRocket = level2.getString("name");
+                    String imageURL = level2.getString("imageURL");
 
 
-                // go down
-                JSONArray level4 = level1.getJSONArray("missions");
-                String nameMission = "";//level4.getJSONObject(0).getString("name");
-                String descriptionMission = "";//level4.getJSONObject(0).getString("description");
+                    // go down
+                    JSONArray level4 = level1.getJSONArray("missions");
+                    String nameMission = level4.getJSONObject(0).getString("name");
+                    String descriptionMission = level4.getJSONObject(0).getString("description");
 
-                // go down
-                level2 = level1.getJSONObject("lsp");
-                String nameLSP = level2.getString("name");
-                String countryCode = level2.getString("countryCode");
+                    // go down
+                    level2 = level1.getJSONObject("lsp");
+                    String nameLSP = level2.getString("name");
+                    String countryCode = level2.getString("countryCode");
 
-                // Create a new {@link Earthquake} object with the magnitude, location, time,
-                // and url from the JSON response.
-                Launch launch = new Launch(name, date, videoURL, place, mapURL, nameRocket, imageURL,nameMission, descriptionMission, nameLSP, countryCode);
+                    Launch launch = new Launch(name, date, videoURL, place, mapURL, nameRocket, imageURL, nameMission, descriptionMission, nameLSP, countryCode);
 
-                // Add the new {@link Earthquake} to the list of earthquakes.
-                launches.add(launch);
+                    launches.add(launch);
+                } catch (JSONException e) {
+                    continue;
+                }
             }
 
         } catch (JSONException e) {
-            // If an error is thrown when executing any of the above statements in the "try" block,
-            // catch the exception here, so the app doesn't crash. Print a log message
-            // with the message from the exception.
-            Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
+            Log.e("QueryUtils", "Problem parsing the launches JSON results", e);
         }
 
-        // Return the list of earthquakes
         return launches;
     }
 

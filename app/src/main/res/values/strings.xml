@@ -1,9 +1,18 @@
 <resources>
-    <string name="empty"></string>
     <string name="app_name">Space invaders</string>
     <string name="launches">Launches</string>
-    <string name="live">Live</string>
-    <string name="articles">Articles</string>
+    <string name="search">Search</string>
+    <string name="faq">FAQ</string>
     <string name="no_launches">No data available</string>
     <string name="no_conn">No Internet connection available</string>
+    <string name="agency_prefix">Agency:</string>
+    <string name="next_hint">No. of launches</string>
+    <string name="launch_hint">Mission name</string>
+    <string name="date_hint">YYYY-MM-DD</string>
+    <string name="from">From</string>
+    <string name="to">to</string>
+    <string name="launch">Launch</string>
+    <string name="next">Next</string>
+    <string name="querybutton">Search</string>
+    <string name="invalid">Invalid input data!</string>
 </resources>

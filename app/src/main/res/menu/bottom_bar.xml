@@ -3,10 +3,10 @@
     <item android:id="@+id/launches"
         android:icon="@drawable/rocket"
         android:title="@string/launches" />
-    <item android:id="@+id/live"
-        android:icon="@drawable/camera"
-        android:title="@string/live" />
-    <item android:id="@+id/articles"
-        android:icon="@drawable/newspaper"
-        android:title="@string/articles" />
+    <item android:id="@+id/query"
+        android:icon="@drawable/lens"
+        android:title="@string/search" />
+    <item android:id="@+id/faq"
+        android:icon="@drawable/faq"
+        android:title="@string/faq" />
 </menu>

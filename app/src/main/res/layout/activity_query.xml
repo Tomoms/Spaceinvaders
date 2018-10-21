@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/universoosservabile"
+    tools:context=".QueryActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="64dp"
+        android:fontFamily="@font/roboto_thin"
+        android:layout_marginTop="64dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:id="@+id/next"
+        android:text="@string/next" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/next"
+            android:layout_marginLeft="64dp"
+            android:fontFamily="@font/roboto_thin"
+            android:layout_marginTop="40dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:id="@+id/launch"
+            android:text="@string/launch"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/launch"
+            android:fontFamily="@font/roboto_thin"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="40dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:id="@+id/from"
+            android:text="@string/from"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/roboto_thin"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/from"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="40dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:id="@+id/to"
+        android:text="@string/to"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="54dp"
+        android:fontFamily="@font/roboto_thin"
+        android:layout_marginLeft="80dp"
+        android:textColorHint="#909090"
+        android:layout_toRightOf="@id/next"
+        android:layout_alignBaseline="@id/next"
+        android:inputType="number"
+        android:id="@+id/nextn"
+        android:hint="@string/next_hint"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#909090"
+        android:fontFamily="@font/roboto_thin"
+        android:layout_marginRight="54dp"
+        android:layout_marginLeft="80dp"
+        android:layout_toRightOf="@id/next"
+        android:layout_alignBaseline="@id/launch"
+        android:inputType="text"
+        android:id="@+id/launch_name"
+        android:hint="@string/launch_hint"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="#909090"
+        android:layout_marginRight="54dp"
+        android:layout_marginLeft="80dp"
+        android:fontFamily="@font/roboto_thin"
+        android:layout_toRightOf="@id/next"
+        android:layout_alignBaseline="@id/from"
+        android:inputType="text"
+        android:id="@+id/from_date"
+        android:hint="@string/date_hint"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="54dp"
+        android:textColorHint="#909090"
+        android:layout_marginLeft="80dp"
+        android:layout_toRightOf="@id/next"
+        android:layout_alignBaseline="@id/to"
+        android:inputType="text"
+        android:fontFamily="@font/roboto_thin"
+        android:id="@+id/to_date"
+        android:hint="@string/date_hint"/>
+    
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/roboto_thin"
+        android:layout_below="@id/to"
+        android:layout_marginTop="60dp"
+        android:text="@string/querybutton"
+        android:id="@+id/querybutton"/>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:background="@color/lightGray"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
+        app:menu="@menu/bottom_bar"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/next"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/text_color"
+        android:alpha="0.4"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/launch"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/text_color"
+        android:alpha="0.4"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/to"
+        android:background="@color/text_color"
+        android:alpha="0.4"/>
+
+
+</RelativeLayout>

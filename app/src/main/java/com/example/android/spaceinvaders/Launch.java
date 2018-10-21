@@ -1,6 +1,8 @@
 package com.example.android.spaceinvaders;
 
-public class Launch {
+import java.io.Serializable;
+
+public class Launch implements Serializable {
     private String name, date, videoURL, location, mapURL, rocketName, missionName, imgURL, description, lsp, countryCode;
 
     public String getName() {
@@ -25,6 +27,22 @@ public class Launch {
 
     public String getImgURL() {
         return imgURL;
+    }
+
+    public String getMissionName() {
+        return missionName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getLsp() {
+        return lsp;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
     }
 
     public String getRocketName() {
